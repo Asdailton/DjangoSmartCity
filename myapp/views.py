@@ -18,6 +18,7 @@ from rest_framework import viewsets
 
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
+@permission_classes([IsAuthenticated])
 def create_user(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
